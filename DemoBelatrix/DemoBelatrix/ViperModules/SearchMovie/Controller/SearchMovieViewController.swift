@@ -11,6 +11,7 @@ import DemoInteractor
 
 protocol SearchMovieViewControllerDelegate : class{
     
+    func updatePagination(newPagination : Pagination)
     func insertMoreMovies(newMovies : [Movie])
     func updateMovies(newMovies : [Movie])
     func clearMovies()
@@ -107,6 +108,11 @@ extension SearchMovieViewController : MovieCollectionViewImplementationDelegate{
 }
 
 extension SearchMovieViewController : SearchMovieViewControllerDelegate{
+    
+    func updatePagination(newPagination : Pagination){
+        self.movieCollectionViewImplementation.updatePagination(newPagination: newPagination)
+    }
+    
     func insertMoreMovies(newMovies : [Movie]){
         self.movieCollectionViewImplementation.insertMoreMovies(newMovies: newMovies)
     }

@@ -12,13 +12,13 @@ import DemoInteractor
 protocol MovieCollectionViewImplementationDelegate : class{
     
     func moviesPagination()
-    
     func didMovieSelected(movie : Movie)
 }
 
 class MovieCollectionViewImplementation : NSObject {
     
     private var movieCollectionView : UICollectionView
+    private var pagination : Pagination = Pagination()
     private var movies : [Movie] = []
     
     weak var delegate : MovieCollectionViewImplementationDelegate?
@@ -49,11 +49,15 @@ class MovieCollectionViewImplementation : NSObject {
         self.movieCollectionView.reloadSections(IndexSet(integer: 0))
     }
     
+    func updatePagination(newPagination : Pagination){
+        self.pagination = newPagination
+    }
+    
     func clearMovies(){
         self.movies.removeAll()
         self.movieCollectionView.reloadSections(IndexSet(integer: 0))
     }
-    
+        
 }
 
 extension MovieCollectionViewImplementation : UICollectionViewDelegate{
@@ -111,7 +115,8 @@ extension MovieCollectionViewImplementation : UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize{
         
-        if self.movies.count != 0{
+        if self.movies.count != 0 &&
+            self.pagination.isPaginationAvailable{
             return CGSize(width: UIScreen.main.bounds.width, height: 60.0)
         }else{
             return CGSize.zero

@@ -144,7 +144,7 @@
     <resources>
         <image name="chevron.left" catalog="system" width="48" height="64"/>
         <namedColor name="redHeaderColor">
-            <color red="0.85490196078431369" green="0.15294117647058825" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.85500001907348633" green="0.15299999713897705" blue="0.17299999296665192" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

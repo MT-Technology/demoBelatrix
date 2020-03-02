@@ -59,6 +59,8 @@ extension SearchMoviePresenter : SearchMoviePresenterDelegate{
                     return
                 }
                 refresh.endRefreshing()
+                
+                viewControllerRef.updatePagination(newPagination: pagination)
                 viewControllerRef.updateMovies(newMovies: movies)
                 welf.pagination = pagination
             }) { (httpErrorCode) in
@@ -84,6 +86,7 @@ extension SearchMoviePresenter : SearchMoviePresenterDelegate{
                 guard let welf = self else {
                         return
                     }
+                    viewControllerRef.updatePagination(newPagination: pagination)
                     if pagination.currentPage == 1{
                         viewControllerRef.updateMovies(newMovies: movies)
                     }else{
