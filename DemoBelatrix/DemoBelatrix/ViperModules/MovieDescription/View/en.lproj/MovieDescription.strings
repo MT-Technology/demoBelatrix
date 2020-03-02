@@ -1,0 +1,45 @@
+
+/* Class = "UILabel"; text = "-- min"; ObjectID = "01h-bh-0ri"; */
+"01h-bh-0ri.text" = "-- min";
+
+/* Class = "UILabel"; text = "Release date:"; ObjectID = "0gG-NB-8x0"; */
+"0gG-NB-8x0.text" = "Release date:";
+
+/* Class = "UILabel"; text = "Budget:"; ObjectID = "4Y0-Jr-J7X"; */
+"4Y0-Jr-J7X.text" = "Budget:";
+
+/* Class = "UILabel"; text = "Revenue:"; ObjectID = "5zd-jy-s5S"; */
+"5zd-jy-s5S.text" = "Revenue:";
+
+/* Class = "UILabel"; text = "0.0/10"; ObjectID = "ADe-mH-ZYq"; */
+"ADe-mH-ZYq.text" = "0.0/10";
+
+/* Class = "UILabel"; text = "[date]"; ObjectID = "ET4-c1-zkC"; */
+"ET4-c1-zkC.text" = "[date]";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "JvW-bS-fFI"; */
+"JvW-bS-fFI.text" = "Description";
+
+/* Class = "UILabel"; text = "[genres]"; ObjectID = "LKz-CW-idx"; */
+"LKz-CW-idx.text" = "[genres]";
+
+/* Class = "UILabel"; text = "Website:"; ObjectID = "S0H-0s-DTb"; */
+"S0H-0s-DTb.text" = "Website:";
+
+/* Class = "UILabel"; text = "[money]"; ObjectID = "TKu-4M-wHT"; */
+"TKu-4M-wHT.text" = "[money]";
+
+/* Class = "UILabel"; text = "[title]"; ObjectID = "Uiz-se-JrK"; */
+"Uiz-se-JrK.text" = "[title]";
+
+/* Class = "UILabel"; text = "[money]"; ObjectID = "hgZ-vC-kNj"; */
+"hgZ-vC-kNj.text" = "[money]";
+
+/* Class = "UILabel"; text = "[web]"; ObjectID = "ohq-ik-C2x"; */
+"ohq-ik-C2x.text" = "[web]";
+
+/* Class = "UILabel"; text = "Genres:"; ObjectID = "vC5-v3-Kxe"; */
+"vC5-v3-Kxe.text" = "Genres:";
+
+/* Class = "UILabel"; text = "[description]"; ObjectID = "xTW-qA-cXJ"; */
+"xTW-qA-cXJ.text" = "[description]";
