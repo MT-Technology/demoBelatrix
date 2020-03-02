@@ -226,20 +226,22 @@ private class MTWebserviceResponseParse {
             }
             
             var webServiceResponse = MTWebServiceResponse()
-            let httpUrlResponse = urlResponse as? HTTPURLResponse
-            webServiceResponse.httpCode = httpUrlResponse?.statusCode ?? 404
+    
             if let _ = error {
                 let (status, message) = self.statusAndMessageForError(error!)
                 webServiceResponse.status = status
                 webServiceResponse.errorMessage = message ?? ""
+                webServiceResponse.httpCode = (error as? NSError)?.code ?? 0
                 DispatchQueue.main.async(execute: {
                     completionHandler(webServiceResponse)
                 })
             }else {
+                let httpUrlResponse = urlResponse as? HTTPURLResponse
                 let (status, message) = self.statusAndMessageForHttpStatusCode(httpUrlResponse?.statusCode ?? 404)
                 webServiceResponse.status = status
                 webServiceResponse.errorMessage = message ?? ""
                 webServiceResponse.response = response
+                webServiceResponse.httpCode = httpUrlResponse?.statusCode ?? 0
                 
                 print(response ?? "No hay respuesta del servicio")
                 

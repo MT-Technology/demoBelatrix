@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A39A35C240D6B890027AD4C /* NoInternetConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A39A35A240D6B890027AD4C /* NoInternetConnectionViewController.swift */; };
+		9A39A35D240D6B890027AD4C /* NoInternetConnectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A39A35B240D6B890027AD4C /* NoInternetConnectionViewController.xib */; };
 		9A53115F240CBB6E008F8308 /* HomeToMovieDescriptionTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A53115E240CBB6E008F8308 /* HomeToMovieDescriptionTransition.swift */; };
 		9A531161240CDC8C008F8308 /* SearchMovieToMovieDescriptionTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A531160240CDC8C008F8308 /* SearchMovieToMovieDescriptionTransition.swift */; };
 		9A531162240CE8E3008F8308 /* MovieDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A531164240CE8E3008F8308 /* MovieDescription.storyboard */; };
@@ -81,6 +83,8 @@
 
 /* Begin PBXFileReference section */
 		9A2E4167240A25F900B6F661 /* DemoNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DemoNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A39A35A240D6B890027AD4C /* NoInternetConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetConnectionViewController.swift; sourceTree = "<group>"; };
+		9A39A35B240D6B890027AD4C /* NoInternetConnectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoInternetConnectionViewController.xib; sourceTree = "<group>"; };
 		9A53115E240CBB6E008F8308 /* HomeToMovieDescriptionTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeToMovieDescriptionTransition.swift; sourceTree = "<group>"; };
 		9A531160240CDC8C008F8308 /* SearchMovieToMovieDescriptionTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieToMovieDescriptionTransition.swift; sourceTree = "<group>"; };
 		9A531163240CE8E3008F8308 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MovieDescription.storyboard; sourceTree = "<group>"; };
@@ -165,6 +169,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A39A359240D697C0027AD4C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A39A35A240D6B890027AD4C /* NoInternetConnectionViewController.swift */,
+				9A39A35B240D6B890027AD4C /* NoInternetConnectionViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9A87A16C240A19290000911A = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +414,7 @@
 			children = (
 				9AB5B847240BB203007F2E47 /* MovieCollectionViewImplementation.swift */,
 				9AB5B846240BAF5F007F2E47 /* Cell */,
+				9A39A359240D697C0027AD4C /* View */,
 			);
 			path = ReusableClases;
 			sourceTree = "<group>";
@@ -587,6 +601,7 @@
 				9AB5B83F240BAD57007F2E47 /* MovieFooterCollectionReusableView.xib in Resources */,
 				9A87A188240A192E0000911A /* LaunchScreen.storyboard in Resources */,
 				9AB5B7B1240A40C1007F2E47 /* Home.storyboard in Resources */,
+				9A39A35D240D6B890027AD4C /* NoInternetConnectionViewController.xib in Resources */,
 				9A531162240CE8E3008F8308 /* MovieDescription.storyboard in Resources */,
 				9AB5B831240B66E2007F2E47 /* SearchMovie.storyboard in Resources */,
 				9A87A185240A192E0000911A /* Assets.xcassets in Resources */,
@@ -638,6 +653,7 @@
 				9A87A1B3240A198D0000911A /* HomeToSearchMovieTransition.swift in Sources */,
 				9AB5B854240C2040007F2E47 /* MovieDescriptionPresenter.swift in Sources */,
 				9A87A1C2240A19B30000911A /* HomePresenter.swift in Sources */,
+				9A39A35C240D6B890027AD4C /* NoInternetConnectionViewController.swift in Sources */,
 				9AB5B85B240C24BB007F2E47 /* MovieDescriptionRouter.swift in Sources */,
 				9AB5B81C240B0856007F2E47 /* HomeConfiguration.swift in Sources */,
 				9AB5B82D240B666F007F2E47 /* SearchMovieViewController.swift in Sources */,

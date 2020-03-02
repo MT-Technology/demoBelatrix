@@ -46,6 +46,7 @@ extension HomePresenter : HomePresenterDelegate{
         if pagination.isPaginationAvailable{
             
             refresh.beginRefreshing()
+            viewControllerRef.removeNoInternetConnectionView()
             self.interactor.getMovies(withPage: pagination.nextPage, onSuccess: {[weak self] (movies, pagination) in
                 guard let welf = self else {
                     refresh.endRefreshing()
@@ -57,6 +58,11 @@ extension HomePresenter : HomePresenterDelegate{
                 
             }) { (httpErrorCode) in
                 refresh.endRefreshing()
+                switch httpErrorCode{
+                case NSURLErrorNotConnectedToInternet:
+                    viewControllerRef.showNoInternetConnectionView()
+                default: break
+                }
             }
         }
     }
@@ -67,6 +73,8 @@ extension HomePresenter : HomePresenterDelegate{
         
         if pagination.isPaginationAvailable{
             
+            
+            viewControllerRef.removeNoInternetConnectionView()
             self.interactor.getMovies(withPage: pagination.nextPage, onSuccess: {[weak self] (movies, pagination) in
                 guard let welf = self else {
                     return
@@ -79,6 +87,12 @@ extension HomePresenter : HomePresenterDelegate{
                 welf.pagination = pagination
                 
             }) { (httpErrorCode) in
+                
+                switch httpErrorCode{
+                case NSURLErrorNotConnectedToInternet:
+                    viewControllerRef.showNoInternetConnectionView()
+                default: break
+                }
             }
         }
     }

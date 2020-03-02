@@ -15,6 +15,8 @@ protocol SearchMovieViewControllerDelegate : class{
     func insertMoreMovies(newMovies : [Movie])
     func updateMovies(newMovies : [Movie])
     func clearMovies()
+    func showNoInternetConnectionView()
+    func removeNoInternetConnectionView()
 }
 
 class SearchMovieViewController: UIViewController {
@@ -39,6 +41,14 @@ class SearchMovieViewController: UIViewController {
     private let configurator : SearchMovieConfigurator = SearchMovieConfigurator()
     private var movieCollectionViewImplementation : MovieCollectionViewImplementation!
     var presenter : SearchMoviePresenter!
+    
+    lazy var noInternetConnectionView: NoInternetConnectionViewController = { [weak self] in
+        let controller = NoInternetConnectionViewController(nibName: "NoInternetConnectionViewController", bundle: nil) as NoInternetConnectionViewController
+        
+        
+        controller.delegate = self
+        return controller
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +84,29 @@ class SearchMovieViewController: UIViewController {
     @IBAction private func back(_ sender : UIButton){
         self.presenter.popController()
     }
+    
+    private func showNoInternetView(){
+        
+        self.noInternetConnectionView.view.frame = self.moviesCollectionView.frame
+        self.noInternetConnectionView.view.alpha = 0.0
+        self.view.addSubview(self.noInternetConnectionView.view)
+        UIView.animate(withDuration: 0.25) {
+            self.noInternetConnectionView.view.alpha = 1.0
+        }
+    }
+    
+    private func hideNoInternetView(){
+        
+        if let _ = self.noInternetConnectionView.view.superview {
+            
+            self.noInternetConnectionView.view.frame = self.moviesCollectionView.frame
+            UIView.animate(withDuration: 0.25, animations: {
+                self.noInternetConnectionView.view.alpha = 0.0
+            }) { (_) in
+                self.noInternetConnectionView.view.removeFromSuperview()
+            }
+        }
+    }
 }
 
 extension SearchMovieViewController : UISearchBarDelegate{
@@ -107,6 +140,13 @@ extension SearchMovieViewController : MovieCollectionViewImplementationDelegate{
     }
 }
 
+extension SearchMovieViewController : NoIntertConnectionViewDelegate{
+    
+    func tryAgainAction() {
+        self.presenter.getMovies()
+    }
+}
+
 extension SearchMovieViewController : SearchMovieViewControllerDelegate{
     
     func updatePagination(newPagination : Pagination){
@@ -123,5 +163,13 @@ extension SearchMovieViewController : SearchMovieViewControllerDelegate{
     
     func clearMovies(){
         self.movieCollectionViewImplementation.clearMovies()
+    }
+    
+    func showNoInternetConnectionView(){
+        self.showNoInternetView()
+    }
+    
+    func removeNoInternetConnectionView(){
+        self.hideNoInternetView()
     }
 }

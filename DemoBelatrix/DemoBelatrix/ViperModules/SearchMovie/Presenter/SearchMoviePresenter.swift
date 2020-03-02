@@ -53,6 +53,7 @@ extension SearchMoviePresenter : SearchMoviePresenterDelegate{
         if self.pagination.isPaginationAvailable{
             
             refresh.beginRefreshing()
+            viewControllerRef.removeNoInternetConnectionView()
             self.interactor.getSearchMovies(withPage: pagination.nextPage, withQuery: self.searchText, onSuccess: {[weak self] (movies, pagination) in
                 guard let welf = self else{
                     refresh.endRefreshing()
@@ -65,6 +66,11 @@ extension SearchMoviePresenter : SearchMoviePresenterDelegate{
                 welf.pagination = pagination
             }) { (httpErrorCode) in
                 refresh.endRefreshing()
+                switch httpErrorCode{
+                case NSURLErrorNotConnectedToInternet:
+                    viewControllerRef.showNoInternetConnectionView()
+                default: break
+                }
             }
         }
         
@@ -82,6 +88,7 @@ extension SearchMoviePresenter : SearchMoviePresenterDelegate{
         
         if pagination.isPaginationAvailable{
             
+            viewControllerRef.removeNoInternetConnectionView()
             self.interactor.getSearchMovies(withPage: pagination.nextPage, withQuery: self.searchText, onSuccess: {[weak self] (movies, pagination) in
                 guard let welf = self else {
                         return
@@ -94,6 +101,11 @@ extension SearchMoviePresenter : SearchMoviePresenterDelegate{
                     }
                     welf.pagination = pagination
             }) { (httpErrorCode) in
+                switch httpErrorCode{
+                case NSURLErrorNotConnectedToInternet:
+                    viewControllerRef.showNoInternetConnectionView()
+                default: break
+                }
             }
         }
         
